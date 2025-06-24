@@ -1,7 +1,7 @@
 import Note from "../models/Note.js";
 
 // get all notes
-export async function getAllNotes(req, res) {
+export async function getAllNotes(_, res) {
     try {
         const notes = await Note.find().sort( {createdAt:-1} ); // Newest first
         res.status(200).json(notes);
@@ -23,7 +23,7 @@ export async function getNoteById(req, res) {
     console.error("Error in getNoteById controller", error);
     res.status(500).json({ message: "Internal server error" });
   }
-}
+};
 
 
 //Create notes
@@ -60,7 +60,7 @@ export async function updateNote(req, res) {
     console.error("Error in updateNote controller", error);
     res.status(500).json({ message: "Internal server error" });
   }
-}
+};
 
 //Delete notes
 export async function deleteNote (req, res) {
